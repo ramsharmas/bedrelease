@@ -1,0 +1,33 @@
+{
+  "raw_rows": 101766,
+  "raw_cols": 50,
+  "sha256": "0689e7ec031237dc63031b938805c48377748761a3b26acab621567afa24df97",
+  "duplicate_encounters": 0,
+  "patients": 71518,
+  "los_min": 1,
+  "los_max": 14,
+  "missing_share_pct": {
+    "weight": 96.9,
+    "max_glu_serum": 94.7,
+    "A1Cresult": 83.3,
+    "medical_specialty": 49.1,
+    "payer_code": 39.6,
+    "race": 2.2
+  },
+  "rows_after_cleaning": 101766,
+  "readmit30_rate_pct": 11.16,
+  "died_or_hospice_rows": 2423,
+  "ward_counts": {
+    "Not recorded": 49949,
+    "Internal Medicine": 18213,
+    "Emergency / Trauma": 7565,
+    "Family / General": 7440,
+    "Surgery": 5730,
+    "Cardiology": 5352,
+    "Other specialty": 3028,
+    "Orthopedics": 2633,
+    "Psychiatry": 854,
+    "Women's health": 748,
+    "Pediatrics": 254
+  }
+}

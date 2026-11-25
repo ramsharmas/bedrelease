@@ -1,0 +1,10 @@
+# Runtime dependencies. Tested ONLY with the versions in the comments (Python 3.13, Linux).
+# Windows: Python 3.11-3.13 from python.org should work but was NOT run on real Windows by the author of this package.
+pandas>=3.0,<4        # tested 3.0.5
+numpy>=2.3,<3         # tested 2.5.3
+scikit-learn>=1.9,<2  # tested 1.9.1 (model.joblib was saved with this; if load fails run run_pipeline.bat)
+joblib>=1.5           # tested 1.6.0
+streamlit>=1.60,<2    # tested 1.67.0
+plotly>=6.0           # tested 7.1.0
+pyarrow>=20           # tested 26.0.1 (used by streamlit tables)
+pytest>=8.0           # tested 9.1.1

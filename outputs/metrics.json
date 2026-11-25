@@ -1,0 +1,210 @@
+{
+  "split": {
+    "train": {
+      "encounters": 71326,
+      "patients": 50062
+    },
+    "valid": {
+      "encounters": 15332,
+      "patients": 10728
+    },
+    "test": {
+      "encounters": 15108,
+      "patients": 10728
+    }
+  },
+  "best_params": {
+    "learning_rate": 0.05,
+    "max_leaf_nodes": 8
+  },
+  "decision_threshold_discharge24h": 0.20999999999999996,
+  "discharge_24h": {
+    "rows": 66281,
+    "positive_rate_pct": 22.79,
+    "p_model": {
+      "roc_auc": 0.6429401823633237,
+      "pr_auc": 0.34556365480241075,
+      "brier": 0.1671348855792323,
+      "ece": 0.003220978331300022
+    },
+    "p_base": {
+      "roc_auc": 0.5951772192176672,
+      "pr_auc": 0.2965686139608705,
+      "brier": 0.17103376619257507,
+      "ece": 0.0015949757628601292
+    },
+    "operating_point": {
+      "threshold": 0.20999999999999996,
+      "precision": 0.2876083760077067,
+      "recall": 0.7509266613714588,
+      "f1": 0.4159181728195916,
+      "accuracy": 0.5192589128106094,
+      "tp": 11345,
+      "fp": 28101,
+      "fn": 3763,
+      "tn": 23072
+    },
+    "high_precision_point": {
+      "threshold": 0.70753,
+      "precision": 0.9121621621621622,
+      "recall": 0.008935663224781574,
+      "f1": 0.017697954902988988,
+      "accuracy": 0.7739020232042365,
+      "tp": 135,
+      "fp": 13,
+      "fn": 14973,
+      "tn": 51160,
+      "target_precision": 0.9
+    },
+    "confident_calls": {
+      "lo": 0.12976,
+      "hi": 0.70753,
+      "coverage": 0.16674461761289058,
+      "accuracy_on_confident_calls": 0.9046326456749909,
+      "n_calls": 11052,
+      "n_abstain": 55229
+    },
+    "majority_class_accuracy": 0.7720613750546914,
+    "top20pct_alert": {
+      "threshold": 0.2884715406542346,
+      "precision": 0.3488722938824772,
+      "recall": 0.30612920307122055,
+      "f1": 0.3261061166931077,
+      "accuracy": 0.7116066444380743,
+      "tp": 4625,
+      "fp": 8632,
+      "fn": 10483,
+      "tn": 42541
+    },
+    "top20pct_alert_baseline": {
+      "threshold": 0.264940283513785,
+      "precision": 0.29189707707933643,
+      "recall": 0.3424013767540376,
+      "f1": 0.3151385927505331,
+      "accuracy": 0.6607775984067833,
+      "tp": 5173,
+      "fp": 12549,
+      "fn": 9935,
+      "tn": 38624
+    }
+  },
+  "length_of_stay": {
+    "mae_median_model": 2.1336378077839555,
+    "mae_median_baseline": 2.252118083134763,
+    "mean_los_actual": 4.387145882975907,
+    "mean_los_predicted": 4.380589553127124,
+    "p10_p90_coverage_pct": 89.79348689436061,
+    "rmse_expected": 2.84152599560636
+  },
+  "long_stay": {
+    "definition": "stay of 7+ days (flagged at admission)",
+    "base_rate_pct": 20.63145353455123,
+    "roc_auc": 0.6486400063655913,
+    "pr_auc": 0.34183663037871936,
+    "top20pct_flag": {
+      "threshold": 0.25006587477686765,
+      "precision": 0.34015852047556144,
+      "recall": 0.33044594161052293,
+      "f1": 0.3352318958502848,
+      "accuracy": 0.7296134498279058,
+      "tp": 1030,
+      "fp": 1998,
+      "fn": 2087,
+      "tn": 9993
+    },
+    "bed_days_share_of_long_pct": 43.211478402558804
+  },
+  "ablation": {
+    "admission_only": {
+      "roc_auc": 0.6361698160570542,
+      "mae_median": 2.148464389727297
+    },
+    "with_diagnosis": {
+      "roc_auc": 0.6429401823633237,
+      "mae_median": 2.1336378077839555
+    },
+    "leaky": {
+      "roc_auc": 0.7459048374071992,
+      "mae_median": 1.6736166269526078
+    }
+  },
+  "time_forward_check": {
+    "train_encounters": 71236,
+    "test_encounters": 15265,
+    "roc_auc_model": 0.631374921730549,
+    "roc_auc_baseline": 0.5921430827347927,
+    "note": "train on the earliest 70% of encounter ids, test on the latest 15% (encounter_id order is chronological per patient)"
+  },
+  "readmission": {
+    "cohort": "discharged alive and not to hospice",
+    "test_rows": 14766,
+    "base_rate_pct": 11.052417716375457,
+    "roc_auc": 0.6713028199897288,
+    "pr_auc": 0.2055462991101916,
+    "brier": 0.22108450179608038,
+    "threshold_top20pct_from_validation": 0.5967625545364262,
+    "flag_top20pct": {
+      "threshold": 0.5967625545364262,
+      "precision": 0.21766072811773818,
+      "recall": 0.3443627450980392,
+      "f1": 0.26672994779307074,
+      "accuracy": 0.7907354733848029,
+      "tp": 562,
+      "fp": 2020,
+      "fn": 1070,
+      "tn": 11114
+    },
+    "rule_baseline_2plus_prior_inpatient": {
+      "threshold": 0.5,
+      "precision": 0.21063089915548933,
+      "recall": 0.25980392156862747,
+      "f1": 0.2326474622770919,
+      "accuracy": 0.8105783556819721,
+      "tp": 424,
+      "fp": 1589,
+      "fn": 1208,
+      "tn": 11545
+    },
+    "lift_top_decile": 2.2297881237803177,
+    "note": "class_weight balanced, so raw probabilities are over-estimates; use as a risk rank, not a percentage"
+  },
+  "ward_backtest": {
+    "ward_days": 2000,
+    "beds": 30,
+    "free_beds_now": 3,
+    "er_arrivals_assumed": 3.0,
+    "confidence": 0.9,
+    "mean_actual_discharges": 6.93,
+    "precision_at_k": {
+      "model": 0.3433849206349206,
+      "baseline_day_hazard": 0.29237242063492064,
+      "random": 0.23100000000000004
+    },
+    "model": {
+      "mae_discharges": 1.7964666084565923,
+      "bias": -0.13208808699460706,
+      "interval80_coverage_pct": 87.15,
+      "avg_safe_elective": 3.202,
+      "plan_failed_pct": 6.75
+    },
+    "baseline_day": {
+      "mae_discharges": 1.8272322226196567,
+      "bias": -0.1323135448072555,
+      "interval80_coverage_pct": 86.5,
+      "avg_safe_elective": 3.132,
+      "plan_failed_pct": 6.550000000000001
+    },
+    "naive_constant": {
+      "mae_discharges": 1.8538025376804812,
+      "bias": -0.09184125164074025,
+      "interval80_coverage_pct": 87.6,
+      "avg_safe_elective": 3.0,
+      "plan_failed_pct": 6.1
+    }
+  },
+  "bi": {
+    "long_stay_encounters_pct": 20.78199005561779,
+    "long_stay_bed_days_pct": 43.516883418797306
+  },
+  "test_encounters": 15108
+}

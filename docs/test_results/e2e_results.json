@@ -1,0 +1,88 @@
+{
+  "run_at_utc": "2026-11-20 16:25:03",
+  "url": "http://localhost:8601",
+  "passed": 16,
+  "total": 16,
+  "tests": [
+    {
+      "test": "ward board KPIs equal an independent recomputation (Internal Medicine, 30 beds, 3 free, ER 3, 90%, census 7)",
+      "passed": true,
+      "detail": "screen=['6.3', '9.3', '3', '0.8%'] expected=['6.3', '9.3', '3', '0.8%']"
+    },
+    {
+      "test": "ward board shows the doctor-override hint and the simulated/proxy limits note",
+      "passed": true,
+      "detail": "doctor-override hint, simulated note and ward-proxy note visible"
+    },
+    {
+      "test": "more empty beds -> more safe planned admissions (immediate update, matches recomputation)",
+      "passed": true,
+      "detail": "free 0 -> 0, free 8 -> 8 (expected 0, 8)"
+    },
+    {
+      "test": "more expected ER arrivals -> fewer safe planned admissions",
+      "passed": true,
+      "detail": "ER 3 -> 3, ER 8 -> 0"
+    },
+    {
+      "test": "different census number -> different simulated day, still matches recomputation",
+      "passed": true,
+      "detail": "census 8: ['6.5', '9.5', '3', '0.7%']"
+    },
+    {
+      "test": "changing ward re-builds the census (Surgery)",
+      "passed": true,
+      "detail": "screen=7.0 expected=7.0"
+    },
+    {
+      "test": "new admission default patient equals independent model prediction",
+      "passed": true,
+      "detail": "screen=['3.6 d', '3 d', '1 - 7 d', '13%'] expected=['3.6 d', '3 d', '1 - 7 d', '13%']"
+    },
+    {
+      "test": "changing diagnosis changes the prediction and matches recomputation",
+      "passed": true,
+      "detail": "Respiratory: ['3.6 d', '3 d', '1 - 7 d', '12%'] vs Circulatory: ['3.6 d', '3 d', '1 - 7 d', '13%']"
+    },
+    {
+      "test": "elective admission prediction matches independent recomputation",
+      "passed": true,
+      "detail": "Elective: ['3.6 d', '3 d', '1 - 7 d', '13%']"
+    },
+    {
+      "test": "evaluation headline numbers equal saved metrics.json",
+      "passed": true,
+      "detail": "screen=['0.643', '0.346', '28.8%', '75.1%', '0.003']"
+    },
+    {
+      "test": "saved ROC-AUC equals AUC recomputed from the 66k raw test patient-day rows",
+      "passed": true,
+      "detail": "recomputed=0.642940"
+    },
+    {
+      "test": "threshold slider: precision/recall/F1 equal recomputation from raw rows",
+      "passed": true,
+      "detail": "threshold 0.30: screen=0.363 / 0.246 / 0.293 expected=0.363 / 0.246 / 0.293"
+    },
+    {
+      "test": "evaluation tabs all render (8 tabs)",
+      "passed": true,
+      "detail": "screenshots 08-15 captured"
+    },
+    {
+      "test": "BI page states long-stay share of bed-days from outputs",
+      "passed": true,
+      "detail": "expects 43.5%"
+    },
+    {
+      "test": "data & limits page names the dataset, the one-dataset fact and the modest-skill limit",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test": "Hinglish toggle switches the UI text",
+      "passed": true,
+      "detail": ""
+    }
+  ]
+}

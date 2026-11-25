@@ -1,0 +1,11 @@
+{
+  "dataset": "UCI Diabetes 130-US hospitals for years 1999-2008 (101,766 encounters)",
+  "raw_sha256": "0689e7ec031237dc63031b938805c48377748761a3b26acab621567afa24df97",
+  "mirror": "https://raw.githubusercontent.com/lugooe/Diabetes/630243bb0ca527d7c4e059e4364215dfa2f27463/diabetic_data.csv",
+  "seed": 42,
+  "python": "3.13.18",
+  "sklearn": "1.9.1",
+  "pandas": "3.0.5",
+  "numpy": "2.5.3",
+  "run_seconds": 151.0
+}

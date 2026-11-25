@@ -1,0 +1,4 @@
+# Pin the light theme. The dashboard's callout boxes use fixed light backgrounds,
+# so a dark browser/OS theme would make their text unreadable.
+[theme]
+base = "light"
